@@ -20,7 +20,7 @@ def valid_isbn(isbn_number)
 			isbn_total = isbn_addition.inject(number, :+)
 		end
 	end	
-	if isbn_total % 11 
+	if isbn_total % 11 == 0
 		result = true
 		puts "#{result} is a valid ISBN number"
 	else
@@ -49,4 +49,4 @@ def check_length()
 end
 	
 
-valid_isbn(9452175684)
+valid_isbn("9452175684")
