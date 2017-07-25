@@ -10,7 +10,7 @@ def valid_isbn(isbn_number)
 		|s| s.to_i
 	}	
 	counter = 10
-	while counter > 0
+	while counter > 1
 		isbn.number.each do |digit|
 			isbn_addition = []
 			isbn_addition <= digit * counter
@@ -20,7 +20,19 @@ def valid_isbn(isbn_number)
 			isbn_total = isbn_addition.inject(number, :+)
 		end
 	end	
-	if isbn_total % 11 == 0
+	
+	while counter < 10
+		counter = 1
+		isbn.number.each do |digit|
+			isbn_addition_reverse = []
+			isbn_addition_reverse <= digit * counter
+			counter = counter + 1
+		end
+		isbn_addition_reverse.each do |number|
+			isbn_total_reverse = isbn_addition_reverse.inject(number, :+)
+		end
+	end	
+	if isbn_total % 11 == 0 && isbn_total_reverse % 11 == 0
 		result = true
 		puts "#{result} is a valid ISBN number"
 	else
