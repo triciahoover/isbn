@@ -10,7 +10,7 @@ def valid_isbn(isbn_number)
 		|s| s.to_i
 	}	
 	counter = 10
-	while counter > 1
+	while counter > 0
 		isbn.number.each do |digit|
 			isbn_addition = []
 			isbn_addition <= digit * counter
@@ -21,9 +21,11 @@ def valid_isbn(isbn_number)
 		end
 	end	
 	if isbn_total % 11 
-		true
+		result = true
+		puts "#{result} is a valid ISBN number"
 	else
-		false
+		result = false
+		"Sorry, #{result} is not a valid ISBN number"
 	end		
 
 end		
@@ -47,4 +49,4 @@ def check_length()
 end
 	
 
-valid_isbn(1111111111)
+valid_isbn(9452175684)
