@@ -5,6 +5,31 @@ def get_isbn(isbn_number)
 	isbn_array.count
 end
 
+def valid_isbn(isbn_number)
+	isbn_number = isbn_number.split("") {
+		|s| s.to_i
+	}	
+	counter = 10
+	while counter > 1
+		isbn.number.each do |digit|
+			isbn_addition = []
+			isbn_addition <= digit * counter
+			counter = counter - 1
+		end
+		isbn_addition.each do |number|
+			isbn_total = isbn_addition.inject(number, :+)
+		end
+	end	
+	if isbn_total % 11 
+		true
+	else
+		false
+	end		
+
+end		
+	
+
+
 def string_length?(isbn_number)
 	if isbn_number.length == 10
 		true
@@ -21,3 +46,5 @@ def check_length()
 	end
 end
 	
+
+valid_isbn(1111111111)
